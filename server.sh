@@ -2,15 +2,15 @@
 
 set -eu
 
-SERVER=meet.jit.si
-ROOM=jitsibin-opus-send
+SERVER=${SERVER:-meet.jit.si}
+ROOM=${ROOM:-jitsibin-opus-send}
 DIRECT=${DIRECT:-false}
 ## DIRECT
-WAVE=6
-VOLUME=0.2
+WAVE=${WAVE:-6}
+VOLUME=${VOLUME:-0.2}
 ## INDIRECT
-PORT=5000
-LATENCY=150
+PORT=${PORT:-5000}
+LATENCY=${LATENCY:-150}
 
 if ${DIRECT}; then
     gst-launch-1.0 jitsibin name=room server=$SERVER room=$ROOM audiotestsrc is-live=true volume=$VOLUME wave=$WAVE \
